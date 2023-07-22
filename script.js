@@ -17,7 +17,7 @@ $(document).ready(function(){
   let currentDate= dayjs().format('MMMM DD, YYYY');
   let headerElement= document.getElementById('currentDay');
   headerElement.textContent=currentDate;
-  window.addEventListener('load',updateDate);
+
   console.log(currentDate);
 
   let currentHour = dayjs().hour();
