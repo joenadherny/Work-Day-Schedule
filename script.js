@@ -14,18 +14,22 @@ for(let i =9;i<18;i++){
 
 }
 $(document).ready(function(){
-let currentHour = dayjs().format('H');
-$(time).each(function(){
-  let blockHour= parseInt($(this)).attr('id').split('-')[1];
-  if(blockHour < currentHour){
-    $(this).removeClass('present future').addClass('past');
-  }else if(blockHour === currentHour){
-    $(this).removeClass('past future').addClass('present');
-  } else{
-    $(this).removeClass('past present').addClass('future');
-  }
-})
-})
+  let currentHour = dayjs().hour();
+  $(".time-block").each(function(){
+    let blockHour= parseInt($(this).attr('id').split('-')[1]);
+    if(blockHour < currentHour){
+      $(this).removeClass('present future').addClass('past');
+    }else if(blockHour === currentHour){
+      $(this).removeClass('past future').addClass('present');
+    } else{
+      $(this).removeClass('past present').addClass('future');
+    }
+  })
+  })
+
+  console.log("Current hour", currentHour, "block Hour", blockHour)
+
+
 
 
   // TODO: Add a listener for click events on the save button. This code should
